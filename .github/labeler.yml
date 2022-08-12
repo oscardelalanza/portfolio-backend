@@ -1,0 +1,22 @@
+workflow:
+  - .github/*
+
+test:
+  - test/**/*.rb
+  - spec/**/*.rb
+
+migration:
+  - db/migrate/*.rb
+
+documentation:
+  - README.md
+  - docs/*
+
+feature:
+  - app/**/*.rb
+
+config:
+  - config/**/*
+
+dependencies:
+  - Gemfile
