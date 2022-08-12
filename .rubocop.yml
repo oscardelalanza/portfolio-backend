@@ -1,4 +1,5 @@
 require:
+  - rubocop
   - rubocop-rails
   - rubocop-performance
   - rubocop-thread_safety
