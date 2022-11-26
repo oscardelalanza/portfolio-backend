@@ -30,8 +30,16 @@ RSpec.describe 'Api::V1::Auths' do
         request
       end
 
+      let(:expected) do
+        {
+          'success' => false,
+          'errors' => ['Forbidden action']
+        }
+      end
+
       it { expect(response).to have_http_status(:forbidden) }
       it { expect(User.count).to be(1) }
+      it { expect(JSON.parse(response.body)).to match(expected) }
     end
   end
 end

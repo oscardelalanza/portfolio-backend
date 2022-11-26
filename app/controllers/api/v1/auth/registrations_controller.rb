@@ -4,6 +4,6 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
   protected
 
   def one_user_registered?
-    render_error(:forbidden, 'Method not allowed') if User.count >= 1 # TODO: implement i18n translations
+    render_error(:forbidden, I18n.t('errors.forbidden')) if User.count >= 1
   end
 end
