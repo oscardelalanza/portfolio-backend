@@ -1,6 +1,5 @@
 class Api::V1::Admin::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   before_action :one_user_registered?, only: [:create]
-  skip_before_action :authenticate_user!
 
   protected
 
