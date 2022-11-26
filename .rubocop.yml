@@ -14,5 +14,15 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
 
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+RSpec/NestedGroups:
+  MaxNesting: 4
+
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
