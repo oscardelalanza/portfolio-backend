@@ -56,6 +56,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
   gem 'rspec-rails'
+  gem 'rswag'
 end
 
 group :development do
