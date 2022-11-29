@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_042850) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_023939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profile_attributes", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "key", limit: 20, null: false
+    t.string "value", null: false
+    t.string "description", limit: 255
+    t.boolean "visible", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_profile_attributes_on_profile_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "title", limit: 50, null: false
+    t.string "description", limit: 255
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -39,4 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_042850) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "profile_attributes", "profiles"
 end
