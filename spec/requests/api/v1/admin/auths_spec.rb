@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::V1::Auths' do
+RSpec.describe 'Api::V1::Admin::Auths' do
   describe 'POST /api/v1/auth' do
     subject(:request) { post user_registration_path(body) }
 
