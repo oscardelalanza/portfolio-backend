@@ -1,5 +1,5 @@
 class Api::V1::Admin::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
-  include Api::V1::Admin::Auth::Registrations
+  include Registrations
 
-  before_action :one_user_registered?, only: [:create]
+  before_action :register_allowed?, only: [:create]
 end
