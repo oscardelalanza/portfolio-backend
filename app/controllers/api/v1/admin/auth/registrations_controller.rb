@@ -1,9 +1,5 @@
 class Api::V1::Admin::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
-  before_action :one_user_registered?, only: [:create]
+  include Registrations
 
-  protected
-
-  def one_user_registered?
-    render_error(:forbidden, I18n.t('errors.forbidden')) if User.count >= 1
-  end
+  before_action :register_allowed?, only: [:create]
 end
