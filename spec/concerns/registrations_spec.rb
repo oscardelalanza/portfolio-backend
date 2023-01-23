@@ -22,7 +22,7 @@ RSpec.describe Registrations do
     subject { object.send(:register_allowed?) }
 
     before do
-      allow(klass).to receive(:render_error).and_return(:forbidden)
+      allow(object).to receive(:render_error).and_return(:forbidden)
     end
 
     context 'when no users in databse' do
