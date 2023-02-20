@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_06_065012) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_084315) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,29 +18,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_065012) do
     t.string "name", null: false
     t.string "brand", null: false
     t.integer "content", null: false
-    t.string "unit", null: false
-    t.string "type"
+    t.string "units", null: false
+    t.string "version"
+    t.string "gender"
     t.string "category", null: false
+    t.string "description"
+    t.string "sku"
+    t.string "asin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "profile_attributes", force: :cascade do |t|
-    t.bigint "profile_id", null: false
-    t.string "key", limit: 20, null: false
-    t.string "value", null: false
-    t.string "description", limit: 255
-    t.boolean "visible", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_profile_attributes_on_profile_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
-    t.string "description", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["asin"], name: "index_products_on_asin", unique: true, where: "(asin IS NOT NULL)"
+    t.index ["category"], name: "index_products_on_category"
+    t.index ["sku"], name: "index_products_on_sku", unique: true, where: "(sku IS NOT NULL)"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +57,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_06_065012) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "profile_attributes", "profiles"
 end
