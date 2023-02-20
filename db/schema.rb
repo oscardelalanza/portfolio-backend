@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_084315) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.string "brand", null: false
-    t.integer "size", null: false
+    t.integer "content", null: false
     t.string "units", null: false
-    t.string "type"
+    t.string "version"
     t.string "gender"
     t.string "category", null: false
     t.string "description"
@@ -27,8 +27,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_084315) do
     t.string "asin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["asin"], name: "index_products_on_asin", unique: true, where: "(asin IS NOT NULL)"
     t.index ["category"], name: "index_products_on_category"
-    t.index ["sku"], name: "index_products_on_sku"
+    t.index ["sku"], name: "index_products_on_sku", unique: true, where: "(sku IS NOT NULL)"
   end
 
   create_table "users", force: :cascade do |t|
