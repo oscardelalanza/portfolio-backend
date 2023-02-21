@@ -51,7 +51,10 @@ gem 'rubocop-rspec', require: false
 gem 'rubocop-thread_safety', require: false
 
 # testing
-gem 'simplecov', require: false, group: :test
+group :test do
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
 
 # config
 gem "figaro"
