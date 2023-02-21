@@ -82,6 +82,8 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -105,10 +107,15 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hashdiff (1.0.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -246,6 +253,7 @@ GEM
     rubocop-thread_safety (0.4.4)
       rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -259,6 +267,10 @@ GEM
     unicode-display_width (2.3.0)
     warden (1.2.9)
       rack (>= 2.0.9)
+    webmock (3.18.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -276,6 +288,7 @@ DEPENDENCIES
   devise_token_auth
   factory_bot_rails
   faker!
+  faraday
   figaro
   pg (~> 1.1)
   puma (~> 5.0)
@@ -289,6 +302,7 @@ DEPENDENCIES
   rubocop-thread_safety
   simplecov
   tzinfo-data
+  webmock
 
 RUBY VERSION
    ruby 3.2.0p0

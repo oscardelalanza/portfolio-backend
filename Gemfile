@@ -19,6 +19,9 @@ gem 'puma', '~> 5.0'
 gem 'devise'
 gem 'devise_token_auth'
 
+# Use http client
+gem 'faraday'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -48,7 +51,10 @@ gem 'rubocop-rspec', require: false
 gem 'rubocop-thread_safety', require: false
 
 # testing
-gem 'simplecov', require: false, group: :test
+group :test do
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
 
 # config
 gem "figaro"
