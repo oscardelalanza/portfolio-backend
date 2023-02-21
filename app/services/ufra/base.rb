@@ -1,5 +1,5 @@
 class Ufra::Base < ApplicationService
-  BASE_URL = fetch.env('UFRA_BASE_URL')
+  BASE_URL = ENV.fetch('UFRA_BASE_URL') { 'https://ufra.com.mx' }
 
   def connector(path)
     Faraday.get(url(path))
