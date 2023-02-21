@@ -19,6 +19,9 @@ gem 'puma', '~> 5.0'
 gem 'devise'
 gem 'devise_token_auth'
 
+# Use http client
+gem 'faraday'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
